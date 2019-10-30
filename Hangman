@@ -1,0 +1,54 @@
+import random
+
+text = open("cuvinte_de_verificat.txt", "r", encoding="utf-8")
+cuvinte = []
+for rand in text:
+    rand = rand.split(";")[2].rstrip("\n")
+    cuvinte.append(rand)
+
+posibilitati = 0
+for cuvant in cuvinte:
+
+    litere = ['Ă', 'Â','Î', 'A', 'E', 'I', 'O', 'U','B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'Ș', 'T', 'Ț', 'V', 'X', 'Y', 'Z', 'W', 'Q']
+
+    text = []
+    for i in litere:
+        if cuvant in text:
+            cuvant = random.choice(cuvinte)
+
+    sec = []
+    for i in cuvant:
+        sec.append(i)
+    ghiceste = []
+    for i in sec:
+        ghiceste.append(" _ ")
+    for i in range(len(sec)):
+        if sec[i] == sec[0] or sec[i] == sec[len(sec)-1]:
+            ghiceste[i] = sec[i]
+            if sec[i] in litere:
+                litere.remove(sec[i])
+
+    print("Cuvant:", ghiceste)
+
+    caracter_utilizat = []
+    while ghiceste != sec:
+        if len(litere):
+            l = random.choice(litere)
+            while l in caracter_utilizat:
+                if l in caracter_utilizat:
+                    l = random.choice(litere)
+                else:
+                    caracter_utilizat.append(l)
+            litere.remove(l)
+
+        for i in range(len(sec)):
+            if sec[i] == l:
+                print("Verificare litera:", l)
+                print("Litera corespunzatoare")
+                ghiceste[i] = l
+                posibilitati -= 1
+                print(ghiceste)
+        posibilitati += 1
+    print("Cuvant aflat:", cuvant)
+    print("\n")
+print("Total incercari:", posibilitati)
