@@ -9,7 +9,7 @@ for rand in text:
 posibilitati = 0
 for cuvant in cuvinte:
 
-    litere = ['Ă', 'Â','Î', 'A', 'E', 'I', 'O', 'U','B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'Ș', 'T', 'Ț', 'V', 'X', 'Y', 'Z', 'W', 'Q']
+    litere = ['E','A','I','R','N','U','T','C','S','L','Ă','O','D','P','M','Ș','Î','V','F','B','G','Ț','Â','Z','H','J','X','Y','K','W','Q']
 
     text = []
     for i in litere:
